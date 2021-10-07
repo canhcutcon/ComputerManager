@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ComputerManagerment" Class="ComputerManagerDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-50F1KAT;Initial Catalog=ComputerManagerment;Integrated Security=True" SettingsObjectName="DAO_ComputerManager.Properties.Settings" SettingsPropertyName="ComputerManagermentConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.computer" Member="computers">
+    <Type Name="computer">
+      <Column Name="idComputer" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="cpu" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="vga" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="hardisk" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ram" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="monitor" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="idRoom" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Association Name="room_computer" Member="room" ThisKey="idRoom" OtherKey="idRoom" Type="room" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.room" Member="rooms">
+    <Type Name="room">
+      <Column Name="idRoom" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nameRoom" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="building" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="floorR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="room_computer" Member="computers" ThisKey="idRoom" OtherKey="idRoom" Type="computer" />
+    </Type>
+  </Table>
+</Database>

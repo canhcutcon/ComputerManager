@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ComputerManager">
+  <DataContextMoniker Name="/ComputerManagerDataContext" />
+  <nestedChildShapes>
+    <classShape Id="f16ea8d6-99df-4b7e-8ad2-d860a7f7e408" absoluteBounds="3.5, 0.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/ComputerManagerDataContext/computer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="053011f1-c4d0-4011-9c6c-3d1a3325da6f" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="902dfdc3-d8a9-4d06-a43e-66d057c74265" absoluteBounds="0.75, 1.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ComputerManagerDataContext/room" />
+      <nestedChildShapes>
+        <elementListCompartment Id="898d0afd-7542-4930-ae83-215a9ce315f1" absoluteBounds="0.765, 1.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.03929768880208); (3.5 : 2.03929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ComputerManagerDataContext/room/room_computer" />
+      <nodes>
+        <classShapeMoniker Id="902dfdc3-d8a9-4d06-a43e-66d057c74265" />
+        <classShapeMoniker Id="f16ea8d6-99df-4b7e-8ad2-d860a7f7e408" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

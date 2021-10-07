@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{98579FAF-2A9B-40CB-B102-3D6965A0B0DF}</ProjectGuid>
+    <ProjectGuid>{7B9029FE-A3C9-484C-AA36-3FA9277056D8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>DTO_ComputerManager</RootNamespace>
-    <AssemblyName>DTO_ComputerManager</AssemblyName>
+    <RootNamespace>DAO_ComputerManager</RootNamespace>
+    <AssemblyName>DAO_ComputerManager</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,8 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO_Computer.cs" />
-    <Compile Include="DTO_Room.cs" />
+    <Compile Include="ComputerManager.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComputerManager.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL_Computer.cs" />
+    <Compile Include="DAL_KetNoi.cs" />
+    <Compile Include="DAL_Room.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -58,6 +65,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ComputerManager.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ComputerManager.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ComputerManager.dbml.layout">
+      <DependentUpon>ComputerManager.dbml</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -70,6 +85,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DTO_ComputerManager\DTO_ComputerManager.csproj">
+      <Project>{98579faf-2a9b-40cb-b102-3d6965a0b0df}</Project>
+      <Name>DTO_ComputerManager</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

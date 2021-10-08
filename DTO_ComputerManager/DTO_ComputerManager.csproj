@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="DTO_Computer.cs" />
     <Compile Include="DTO_Room.cs" />
+    <Compile Include="DTO_UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

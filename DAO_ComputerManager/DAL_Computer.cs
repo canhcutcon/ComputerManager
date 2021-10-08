@@ -50,5 +50,92 @@ namespace DAO_ComputerManager
             newComputer.IdRoom = cp.idRoom;
             return newComputer;
         }
+
+        public List<DTO_Computer> getComputerByIDRoom(string idRoom)
+        {
+            var listCP = dt.computers.Select(p => p).OrderBy(p => p.idRoom.Equals(idRoom));
+
+            List<DTO_Computer> lstComputer = new List<DTO_Computer>();
+            foreach(computer cp in listCP)
+            {
+                DTO_Computer ncomputer = new DTO_Computer();
+                ncomputer.IdComputer = cp.idComputer;
+                ncomputer.Cpu = cp.cpu;
+                ncomputer.Vga = cp.vga;
+                ncomputer.Ram = cp.ram;
+                ncomputer.Hardisk = cp.hardisk;
+                ncomputer.Moniter = cp.monitor;
+                ncomputer.IdRoom = cp.idRoom;
+                lstComputer.Add(ncomputer);
+            }
+            return lstComputer;
+        }
+
+        public bool checkComputerExist(string id)
+        {
+            computer cp = dt.computers.Where(p => p.idComputer.Equals(id)).FirstOrDefault();
+            if(cp != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool addComputer(DTO_Computer newComputer)
+        {
+            if(checkComputerExist(newComputer.IdComputer))
+            {
+                return false;
+            }
+
+            computer cp = new computer();
+            cp.idComputer = newComputer.IdComputer;
+            cp.cpu = newComputer.Cpu;
+            cp.vga = newComputer.Vga;
+            cp.ram = newComputer.Ram;
+            cp.hardisk = newComputer.Hardisk;
+            cp.monitor = newComputer.Moniter;
+            cp.idRoom = newComputer.IdRoom;
+            dt.computers.InsertOnSubmit(cp);
+            dt.SubmitChanges();
+            return true;
+        }
+
+        public bool deleteComputer(string idComputer)
+        {
+            computer cp = dt.computers.Where(p => p.idComputer.Equals(idComputer)).FirstOrDefault();
+            if(cp != null)
+            {
+                dt.computers.DeleteOnSubmit(cp);
+                dt.SubmitChanges();
+                return true;
+            }
+            return false;
+        }
+
+        public bool updateComputer(DTO_Computer ncomputer)
+        {
+            IQueryable<computer> cp = dt.computers.Where(p => p.idComputer.Equals(ncomputer.IdComputer));
+            
+            if( cp.Count() >= 0)
+            {
+                try
+                {
+                    cp.First().vga = ncomputer.Vga;
+                    cp.First().cpu = ncomputer.Cpu;
+                    cp.First().ram = ncomputer.Ram;
+                    cp.First().hardisk = ncomputer.Hardisk;
+                    cp.First().monitor = ncomputer.Moniter;
+                    cp.First().idRoom = ncomputer.IdRoom;
+                    dt.SubmitChanges();
+                }
+                catch
+                {
+                    return false;
+                }
+                return true;
+            }
+            return true;
+        }
     }
 }

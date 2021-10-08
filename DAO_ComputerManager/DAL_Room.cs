@@ -31,6 +31,29 @@ namespace DAO_ComputerManager
             return lstRoom;
         }
 
+        public DTO_Room getRoomByID(string id)
+        {
+            room db_Room = dt.rooms.Where(p => p.idRoom.Equals(id)).FirstOrDefault();
+
+            DTO_Room nRoom = new DTO_Room();
+            nRoom.IdRoom = db_Room.idRoom;
+            nRoom.NameRoom = db_Room.nameRoom;
+            nRoom.Building = db_Room.building;
+            nRoom.Floor = db_Room.floorR.Value;
+            return nRoom;
+        }
+
+        public bool checkRoomExist(string id)
+        {
+            room db_Room = dt.rooms.Where(p => p.idRoom.Equals(id)).FirstOrDefault();
+            if (db_Room != null)
+                return true;
+
+            return false;
+        }    
+
+
+
       
     }
 }

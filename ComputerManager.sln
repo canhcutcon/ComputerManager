@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO_ComputerManager", "DTO_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO_ComputerManager", "DAO_ComputerManager\DAO_ComputerManager.csproj", "{7B9029FE-A3C9-484C-AA36-3FA9277056D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BUS_ComputerManager", "BUS_ComputerManager\BUS_ComputerManager.csproj", "{2528BC1F-B165-4835-801C-9B68D10B0A3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Views", "Views\Views.csproj", "{ED7B64A5-3A87-4589-B2F5-36EBE975D16F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{7B9029FE-A3C9-484C-AA36-3FA9277056D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B9029FE-A3C9-484C-AA36-3FA9277056D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B9029FE-A3C9-484C-AA36-3FA9277056D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2528BC1F-B165-4835-801C-9B68D10B0A3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2528BC1F-B165-4835-801C-9B68D10B0A3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2528BC1F-B165-4835-801C-9B68D10B0A3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2528BC1F-B165-4835-801C-9B68D10B0A3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED7B64A5-3A87-4589-B2F5-36EBE975D16F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED7B64A5-3A87-4589-B2F5-36EBE975D16F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED7B64A5-3A87-4589-B2F5-36EBE975D16F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED7B64A5-3A87-4589-B2F5-36EBE975D16F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

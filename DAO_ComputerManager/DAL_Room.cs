@@ -52,8 +52,54 @@ namespace DAO_ComputerManager
             return false;
         }    
 
+        public bool addRoom(DTO_Room nRoom)
+        {
+            if (checkRoomExist(nRoom.IdRoom))
+                return false;
+            room db_room = new room();
+            db_room.idRoom = nRoom.IdRoom;
+            db_room.nameRoom = nRoom.NameRoom;
+            db_room.building = nRoom.Building;
+            db_room.floorR = nRoom.Floor;
+            dt.rooms.InsertOnSubmit(db_room);
+            dt.SubmitChanges();
+            return true;
+        }
 
 
+        public bool deleteRoom(string id)
+        {
+            room db_room = dt.rooms.Where(p => p.idRoom.Equals(id)).FirstOrDefault();
+
+            if(db_room != null)
+            {
+                dt.rooms.DeleteOnSubmit(db_room);
+                dt.SubmitChanges();
+                return true;
+            }
+            return false;
+        }
+
+        public bool updateRoom(DTO_Room nRoom)
+        {
+            IQueryable<room> dbRoom = dt.rooms.Where(p => p.idRoom.Equals(nRoom.IdRoom));
+            if(dbRoom.Count() >= 0)
+            {
+                try
+                {
+                    dbRoom.First().nameRoom = nRoom.NameRoom;
+                    dbRoom.First().building = nRoom.Building;
+                    dbRoom.First().floorR = nRoom.Floor;
+                    dt.SubmitChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
       
     }
 }

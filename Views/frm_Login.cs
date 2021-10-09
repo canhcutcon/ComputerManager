@@ -20,7 +20,7 @@ namespace Views
             InitializeComponent();
         }
 
-        public DTO_Login user;
+        public DTO_UserInfo user;
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if(txtUsername.Text.Length == 0 || txtPassword.Text.Length == 0)
@@ -29,7 +29,19 @@ namespace Views
                 MessageBox.Show("Please enter username, password!");
             }else if (txtUsername.Text.Equals("Canhcutcon") && txtPassword.Text.Equals("giang123"))
             {
-                user = new DTO_Login(txtUsername.Text, txtPassword.Text);
+                user = new DTO_UserInfo(txtUsername.Text, txtPassword.Text);
+                MessageBox.Show("Login succe!!");
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                dem++;
+                MessageBox.Show("Wrong username or passaword!!");
+            }
+
+            if(dem == 3)
+            {
+                MessageBox.Show("")
             }
             
         }
